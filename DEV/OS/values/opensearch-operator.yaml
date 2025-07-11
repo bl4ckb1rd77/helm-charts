@@ -1,0 +1,19 @@
+nameOverride: ""
+fullnameOverride: ""
+
+nodeSelector: {}
+tolerations: []
+
+manager:
+  loglevel: info
+  resources:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 1
+      memory: 1Gi
+  image:
+    repository: opensearchproject/opensearch-operator
+    tag: ""
+    pullPolicy: "Always"

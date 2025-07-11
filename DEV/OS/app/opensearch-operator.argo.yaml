@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cw-opensearch-operator
+  namespace: argocd
+spec:
+  project: cw-opensearch-operator
+  destination:
+    namespace: "cw-opensearch-operator"
+    name: in-cluster
+  syncPolicy:
+    # nothing automated
+  sources:
+    - path: ""
+      repoURL: "https://github.com/bl4ckb1rd77/helm-charts.git"
+      targetRevision: main
+      chart: opensearch-operator-2.7.0.tgz
+      helm:
+        valueFiles:
+          - DEV/OS/values/opensearch-operator.yaml
