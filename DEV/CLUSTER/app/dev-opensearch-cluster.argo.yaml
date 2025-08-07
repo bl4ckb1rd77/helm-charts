@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-opensearch-cluster
+  namespace: argocd
+spec:
+  project: dev-datenhaus-index
+  sources:
+    - path: ""
+      repoURL: http://chartmuseum.chartmuseum.svc.cluster.local:8080
+      targetRevision: 3.1.0
+      chart: opensearch-cluster
+      helm:
+        valueFiles:
+          - $config-values/DEV/CLUSTER/values/values.yaml
+    - path: ""
+      repoURL: https://github.com/bl4ckb1rd77/helm-charts.git
+      targetRevision: main
+      ref: "config-values"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev-datenhaus-index
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: adminCert
+  namespace: dev-datenhaus-index
+data:
+  password: bTRzdDNyLUIwMQo=
+  username: YWRtaW4Kt

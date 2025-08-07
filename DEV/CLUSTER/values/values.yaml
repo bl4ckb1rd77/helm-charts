@@ -1,0 +1,73 @@
+cluster:
+  general:
+    drainDataNodes: true
+    httpPort: 9200
+    version: 3.0.0
+    image: docker.io/opensearchproject/opensearch
+    imagePullPolicy: IfNotPresent
+  dashboards:
+    additionalConfig:
+      opensearch_security.multitenancy.enabled: "true"
+      opensearch_security.multitenancy.tenants.enable_private: "false"
+    enable: true
+    image: docker.io/opensearchproject/opensearch-dashboards
+    imagePullPolicy: "IfNotPresent"
+    pluginsList: []
+    replicas: 1
+    resources: {}
+    service:
+      loadBalancerSourceRanges: []
+      type: ClusterIP
+    tls:
+      enable: true
+      generate: true
+    version: 3.0.0
+  nodePools:
+    - component: masters
+      diskSize: "1Gi"
+      replicas: 1
+      roles:
+        - "data"
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: "500m"
+        limits:
+          memory: "1Gi"
+          cpu: "500m"
+    - component: data
+      diskSize: "10Gi"
+      replicas: 2
+      roles:
+        - "master"
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: "500m"
+        limits:
+          memory: "1Gi"
+          cpu: "500m"
+    - component: coordinator
+      diskSize: "1Gi"
+      replicas: 1
+      roles:
+        - "coordinator"
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: "500m"
+        limits:
+          memory: "1Gi"
+          cpu: "500m"
+  security:
+    config:
+      adminCredentialsSecret:
+        name: opensearch-superuser
+    tls:
+      transport:
+        caSecret:
+          name: rootCA
+        generate: true
+        perNode: true
+      http:
+        generate: true
