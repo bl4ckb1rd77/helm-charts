@@ -7,14 +7,17 @@ spec:
   project: cw-opensearch-operator
   destination:
     namespace: "cw-opensearch-operator"
-    name: in-cluster
+    name: "in-cluster"
   syncPolicy:
     # nothing automated
   sources:
-    - repoURL: "https://github.com/bl4ckb1rd77/helm-charts.git"
-      targetRevision: main
+    - repoURL: "http://chartmuseum.chartmuseum.svc.cluster.local:8080/api/charts"
+      targetRevision: 2.7.0
       path: ""
-      chart: opensearch-operator-2.7.0.tgz
+      chart: opensearch-operator
       helm:
         valueFiles:
-          - DEV/OS/values/opensearch-operator.yaml
+          - $config-values/DEV/OS/values/opensearch-operator.yaml
+    - repoURL: "https://github.com/bl4ckb1rd77/helm-charts.git"
+      targetRevision: main
+      ref: "config-values"
