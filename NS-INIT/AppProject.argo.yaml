@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: init-namespace
+  namespace: argocd
+spec:
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: "*"
+      name: in-cluster
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: namespace
+    - group: "*"
+      kind: Application
+  namespaceResourceBlacklist:
+    - group: "*"
+      kind: ResourceQuota
