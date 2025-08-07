@@ -11,9 +11,9 @@ spec:
   syncPolicy:
     # nothing automated
   sources:
-    - path: ""
-      repoURL: "https://github.com/bl4ckb1rd77/helm-charts.git"
+    - repoURL: "https://github.com/bl4ckb1rd77/helm-charts.git"
       targetRevision: main
+      path: ""
       chart: opensearch-operator-2.7.0.tgz
       helm:
         valueFiles:
