@@ -2,7 +2,7 @@ cluster:
   general:
     drainDataNodes: true
     httpPort: 9200
-    version: 3.0.0
+    version: 3.1.0
     image: docker.io/opensearchproject/opensearch
     imagePullPolicy: IfNotPresent
   dashboards:
@@ -21,7 +21,7 @@ cluster:
     tls:
       enable: true
       generate: true
-    version: 3.0.0
+    version: 3.1.0
   nodePools:
     - component: masters
       diskSize: "1Gi"
