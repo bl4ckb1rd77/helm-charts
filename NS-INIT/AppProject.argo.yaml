@@ -3,6 +3,8 @@ kind: AppProject
 metadata:
   name: init-namespace
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   sourceRepos:
     - "*"
@@ -15,5 +17,5 @@ spec:
     - group: "*"
       kind: Application
   namespaceResourceBlacklist:
-    - group: "*"
+    - group: ""
       kind: ResourceQuota
