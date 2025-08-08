@@ -38,7 +38,7 @@ cluster:
           cpu: "1"
     - component: data
       diskSize: "1Gi"
-      replicas: 1
+      replicas: 2
       roles:
         - "data"
       resources:
