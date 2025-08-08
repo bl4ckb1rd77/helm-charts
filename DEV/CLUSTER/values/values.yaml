@@ -15,18 +15,13 @@ cluster:
     imagePullPolicy: "IfNotPresent"
     pluginsList: []
     replicas: 1
-    resources:
-      requests:
-        memory: 1Gi
-        cou: 500m
-      limits:
-        memory: 2Gi
-        cpu: 1
+    resources: {}
     service:
       loadBalancerSourceRanges: []
       type: ClusterIP
     tls:
-      enable: false
+      enable: true
+      generate: true
     version: 3.1.0
   nodePools:
     - component: masters
