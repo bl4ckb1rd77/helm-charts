@@ -1,6 +1,7 @@
 cluster:
   general:
     drainDataNodes: true
+    serviceName: dev-opensearch-cluster
     httpPort: 9200
     version: 3.1.0
     image: docker.io/opensearchproject/opensearch
@@ -49,9 +50,9 @@ cluster:
           memory: "1Gi"
           cpu: "500m"
   security:
-    config:
-      adminCredentialsSecret:
-        name: opensearch-superuser
+#    config:
+#      adminCredentialsSecret:
+#        name: opensearch-superuser
     tls:
       transport:
         caSecret:
