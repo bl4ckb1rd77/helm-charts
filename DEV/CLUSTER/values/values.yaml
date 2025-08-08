@@ -26,9 +26,8 @@ cluster:
   nodePools:
     - component: masters
       diskSize: "1Gi"
-      replicas: 2
+      replicas: 1
       roles:
-        - "data"
         - "master"
       resources:
         requests:
@@ -37,18 +36,30 @@ cluster:
         limits:
           memory: "2Gi"
           cpu: "1"
-    - component: coordinator
+    - component: data
       diskSize: "1Gi"
       replicas: 1
       roles:
-        - "coordinator"
+        - "data"
       resources:
         requests:
           memory: "1Gi"
-          cpu: "500m"
+          cpu: "1"
         limits:
-          memory: "1Gi"
-          cpu: "500m"
+          memory: "2Gi"
+          cpu: "1"
+#    - component: coordinator
+#      diskSize: "1Gi"
+#      replicas: 1
+#      roles:
+#        - "coordinator"
+#      resources:
+#        requests:
+#          memory: "1Gi"
+#          cpu: "500m"
+#        limits:
+#          memory: "1Gi"
+#          cpu: "500m"
   security:
 #    config:
 #      adminCredentialsSecret:
