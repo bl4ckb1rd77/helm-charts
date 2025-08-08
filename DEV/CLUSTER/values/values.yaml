@@ -26,31 +26,31 @@ cluster:
   nodePools:
     - component: masters
       diskSize: "1Gi"
-      replicas: 1
+      replicas: 2
       roles:
         - "master"
       resources:
         requests:
           memory: "1Gi"
-          cpu: "1"
+          cpu: "500m"
         limits:
-          memory: "2Gi"
-          cpu: "1"
+          memory: "1Gi"
+          cpu: "500m"
     - component: data
-      diskSize: "1Gi"
+      diskSize: "5Gi"
       replicas: 2
       roles:
         - "data"
       resources:
         requests:
           memory: "1Gi"
-          cpu: "1"
+          cpu: "500m"
         limits:
-          memory: "2Gi"
-          cpu: "1"
+          memory: "1Gi"
+          cpu: "500m"
 #    - component: coordinator
 #      diskSize: "1Gi"
-#      replicas: 1
+#      replicas: 2
 #      roles:
 #        - "coordinator"
 #      resources:
