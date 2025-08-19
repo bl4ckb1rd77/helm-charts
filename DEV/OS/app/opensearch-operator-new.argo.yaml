@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cw-opensearch-operator-2-7-0
+  name: opensearch-operator
   namespace: argocd
 spec:
   project: cw-opensearch-operator
@@ -9,6 +9,8 @@ spec:
     repoURL: http://chartmuseum.chartmuseum.svc.cluster.local:8080
     targetRevision: 2.7.0
     chart: opensearch-operator
+    helm:
+      releaseName: cw-opensearch-operator-2-7-0
   destination:
     server: https://kubernetes.default.svc
     namespace: cw-opensearch-operator

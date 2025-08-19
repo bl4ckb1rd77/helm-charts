@@ -48,26 +48,9 @@ cluster:
         limits:
           memory: "1Gi"
           cpu: "500m"
-#    - component: coordinator
-#      diskSize: "1Gi"
-#      replicas: 2
-#      roles:
-#        - "coordinator"
-#      resources:
-#        requests:
-#          memory: "1Gi"
-#          cpu: "500m"
-#        limits:
-#          memory: "1Gi"
-#          cpu: "500m"
   security:
-#    config:
-#      adminCredentialsSecret:
-#        name: opensearch-superuser
     tls:
       transport:
-        caSecret:
-          name: rootca
         generate: true
         perNode: true
       http:
