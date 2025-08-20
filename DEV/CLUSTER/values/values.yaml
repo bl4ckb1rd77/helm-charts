@@ -25,21 +25,10 @@ cluster:
     version: 3.1.0
   nodePools:
     - component: masters
-      diskSize: "1Gi"
-      replicas: 2
+      diskSize: "5Gi"
+      replicas: 3
       roles:
         - "master"
-      resources:
-        requests:
-          memory: "1Gi"
-          cpu: "500m"
-        limits:
-          memory: "1Gi"
-          cpu: "500m"
-    - component: data
-      diskSize: "5Gi"
-      replicas: 2
-      roles:
         - "data"
       resources:
         requests:
