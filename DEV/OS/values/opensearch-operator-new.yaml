@@ -1,5 +1,5 @@
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "cw-opensearch-operator-2-7-0"
+fullnameOverride: "cw-opensearch-operator-2-7-0"
 
 nodeSelector: {}
 tolerations: []

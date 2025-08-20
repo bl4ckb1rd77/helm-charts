@@ -5,10 +5,18 @@ metadata:
   namespace: argocd
 spec:
   project: cw-opensearch-operator
-  source:
-    repoURL: http://chartmuseum.chartmuseum.svc.cluster.local:8080
-    targetRevision: 2.7.0
-    chart: opensearch-operator
+  sources:
+    - path: ""
+      repoURL: http://chartmuseum.chartmuseum.svc.cluster.local:8080
+      targetRevision: 2.7.0
+      chart: opensearch-operator
+      helm:
+        valueFiles:
+          - $config-values/DEV/OS/values/opensearch-operator.yaml
+    - path: ""
+      repoURL: https://github.com/bl4ckb1rd77/helm-charts.git
+      targetRevision: main
+      ref: "config-values"
   destination:
     server: https://kubernetes.default.svc
     namespace: cw-opensearch-operator
