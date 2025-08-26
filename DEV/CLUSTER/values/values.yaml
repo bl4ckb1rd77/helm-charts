@@ -42,5 +42,7 @@ cluster:
       transport:
         generate: true
         perNode: true
+        caSecret:
+          name: rootca
       http:
         generate: true
