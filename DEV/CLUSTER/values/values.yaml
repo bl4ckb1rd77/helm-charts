@@ -14,7 +14,7 @@ cluster:
     image: docker.io/opensearchproject/opensearch-dashboards
     imagePullPolicy: "IfNotPresent"
     pluginsList: []
-    replicas: 1
+    replicas: 2
     resources: {}
     service:
       loadBalancerSourceRanges: []
@@ -43,4 +43,4 @@ cluster:
         generate: true
         perNode: false
       http:
-        generate: false
+        generate: true
