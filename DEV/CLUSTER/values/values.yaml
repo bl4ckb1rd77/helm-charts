@@ -40,7 +40,13 @@ cluster:
   security:
     tls:
       transport:
-        generate: true
+        generate: false
         perNode: false
+        secret:
+          name: transport-cert
       http:
-        generate: true
+        generate: false
+        secret:
+          name: http-cert
+      adminSecret:
+        name: admin-cert
