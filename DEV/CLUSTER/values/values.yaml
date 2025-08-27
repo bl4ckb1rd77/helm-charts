@@ -41,8 +41,6 @@ cluster:
     tls:
       transport:
         generate: true
-        perNode: true
-        caSecret:
-          name: rootca
+        perNode: false
       http:
-        generate: true
+        generate: false
